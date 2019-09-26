@@ -20,7 +20,28 @@ http://localhost:8080/restoran/view?idRestoran=1
 4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses ​http://localhost:8080/restoran/viewall​, apa yang akan ditampilkan? Sertakan juga bukti ​screenshotmu.
 ![image](https://user-images.githubusercontent.com/36152954/65163707-9d78c300-da65-11e9-8d49-55babfc6c206.png)
 
-### What I did not understand
-(tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
-- [ ] Kenapa saya harus belajar APAP? - [x] Kenapa?
-Karena ...
+## Tutorial 3
+### What I have learned today
+
+1. Pada class MenuDb, terdapat method findByRestoranIdRestoran, apakah kegunaan dari
+method tersebut?
+method findByRestoranIdRestoran digunakan untuk mencari menu pada restoran yang memiliki idRestoran yang diberikan. method ini akan mengembalikan list menu yang ada pada restoran yang dimaksud.
+
+2. Pada class RestoranController, jelaskan perbedaan method addRestoranFormPage dan
+addRestoranSubmit?
+addRestoranFormPage adalah method yang mengatur kerja dan mengembalikan tampilan dari form untuk fitur tambah restoran. sedangkan addRestoranSubmit adalah method yang akan menghandle data yang dimasukan/disubmit melalui form. addRestoranSubmit nantinya akan mengambil dan menyimpan data yang dimasukan melalui form ke database.
+
+3. Jelaskan apa kegunaan dari JPA Repository?
+JPA atau Java Persistence API sendiri adalah sebuah standar spesifikasi tentang bagaimana cara mengakses atau memasukan objek-objek Java ke suatu database. Ada dua bagian pada JPA yaitu *mapping subsystem* untuk melakukan
+*mapping* antara class-class ke *relational table* dan ebuah API *EntityManager*
+untuk mengakses objek-objek, mengatur query, dsb. Ada juga istilah Hibernate yang merupakan implementasi dari JPA. JPA menggunakan teknologi ORM atau Object Relational Mapping, yang diimplementasikan oleh framework Hibernate.
+
+4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara RestoranModel dan
+MenuModel dibuat?
+relasi antara keduanya terdefinisikan melalui @OneToMany pada RestoranModel yang menunjukan bahwa satu restoran dapat memiliki banyak menu dan @ManyToOne pada MenuModel yang menunjukan bahwa banyak menu dapat dimiliki oleh satu restoran.
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+FetchType.LAZY: memberi tahu Hibernate untuk mengambil suatu entity dari database saat dibutuhkan saja.
+FetchType.EAGER: memberi tahu Hibernate untuk mengambil suatu entity diawal sehingga elemennya sudah siap saat kita membutuhkannya disuatu waktu.
+CascadeType.ALL: digunakan agar segala perubahan yang terjadi pada suatu entity (seperti DELETE, UPDATE, dsb) akan terjadi juga pada entity lain yang memiliki relasi dengannya. Contohnya ketika kita menghapus suatu restoran, maka menu yang dimiliki restoran tersebut juga akan ikut terhapus.
+
