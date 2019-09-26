@@ -101,7 +101,6 @@ public class RestoranController {
         for (RestoranModel resto : restoList){
             if (resto.getIdRestoran() == idRestoran) {
                 RestoranModel restoToDelete = resto;
-                System.out.println("oker");
                 if (restoToDelete.getListMenu().isEmpty()){
                     restoranService.deleteRestoran(restoToDelete);
                     return "delete-restoran";

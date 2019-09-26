@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.awt.*;
+import java.util.List;
+
 @Controller
 public class MenuController {
     @Autowired
@@ -57,4 +60,11 @@ public class MenuController {
         model.addAttribute("menu", newMenuData);
         return "change-menu";
     }
+
+    @RequestMapping("/menu/delete/{id}")
+    public String delete(@PathVariable(value = "id") Long id, @ModelAttribute MenuModel menu, Model model){
+        MenuModel menuToDelete = menuService.getMenuById(id).get();
+        menuService.deleteMenu(menuToDelete);
+        return "delete-menu";
+        }
 }

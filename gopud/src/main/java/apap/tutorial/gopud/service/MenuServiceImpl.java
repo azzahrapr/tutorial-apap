@@ -39,9 +39,15 @@ public class MenuServiceImpl implements MenuService {
             targetMenu.setDeskripsi(menuModel.getDeskripsi());
             targetMenu.setDurasiMasak(menuModel.getDurasiMasak());
             targetMenu.setHarga(menuModel.getHarga());
+            menuDB.save(targetMenu);
             return targetMenu;
         } catch (NullPointerException nullException) {
             return null;
         }
+    }
+
+    @Override
+    public void deleteMenu(MenuModel menuModel){
+        menuDB.delete(menuModel);
     }
 }
