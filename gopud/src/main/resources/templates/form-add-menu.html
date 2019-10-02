@@ -5,15 +5,58 @@
     <title>Add Menu</title>
     <object th:include="fragments/fragment :: css" th:remove="tag"></object>
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
+    <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+    <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 </head>
 <body>
 <nav th:replace="fragments/fragment :: navbar(title = 'Add Menu')"></nav>
-<h3>Tambah Produk</h3>
-<form th:action="@{/menu/add}" th:object="${menu}" method="POST">
-    <input type="hidden" th:field="*{restoran}"/>
+
+<h3>Tambah Menu</h3>
+<form th:action="@{/menu/add/} + ${idRestoran}" th:object="${restoran}" method="POST">
+    <input type="hidden" th:field="*{idRestoran}"/>
+    <table>
+        <thead>
+        <tr>
+            <td>Nama</td>
+            <td>Harga</td>
+            <td>Deskripsi</td>
+            <td>Durasi Penyajian</td>
+            <td>
+                <button type="submit" name="addRow">Add Row</button>
+            </td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="menu, iterationStatus : *{listMenu}">
+            <td>
+                <input type="text" name="nama" th:field="*{listMenu[__${iterationStatus.index}__].nama}" />
+            </td>
+            <td>
+                <input type="number" name="harga" th:field="*{listMenu[__${iterationStatus.index}__].harga}"  />
+            </td>
+            <td>
+                <input type="text" name="deskripsi" th:field="*{listMenu[__${iterationStatus.index}__].deskripsi}"  />
+            </td>
+            <td>
+                <input type="time" name="durasiMasak" th:field="*{listMenu[__${iterationStatus.index}__].durasiMasak}"  />
+            </td>
+            <td>
+                <button type="submit" name="removeRow" th:value="${iterationStatus.index}">Hapus</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="submit">
+        <button type="submit" name="save">Submit</button>
+    </div>
+</form>
+</body>
+</html>
+
+<!--<form th:action="@{/menu/add}" th:object="${menu}" method="POST">-->
+    <!--<input type="hidden" th:field="*{restoran}"/>-->
     <!--Nama: <br>-->
     <!--<input type="text" name="nama"/>-->
     <!--<br>-->
@@ -26,82 +69,68 @@
     <!--durasiMasak (menit): <br>-->
     <!--<input type="number" name="durasiMasak"/>-->
     <!--<br>-->
-    <table id="menu" class="table order-list">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Harga</th>
-                <th>Deskripsi</th>
-                <th>Durasi Penyajian</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="col-sm-3"><input type="text" name="nama" class="form-control" /></td>
-                <td class="col-sm-3"><input type="number" name="harga"  class="form-control"/></td>
-                <td class="col-sm-3"><input type="text" name="deskripsi"  class="form-control"/></td>
-                <td class="col-sm-3"><input type="time" name="durasiMasak"  class="form-control"/></td>
-                <td class="col-sm-2"><a class="deleteRow"></a>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="5" style="text-align: left;">
-                    <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
-                </td>
-            </tr>
-        </tfoot>
-    </table>
-    <br>
-    <button type="submit">Submit</button>
-</form>
-</body>
-</html>
 
-<script>
-    $(document).ready(function () {
-        var counter = 0;
+    <!--<table id="menu" class="table order-list">-->
+        <!--<thead>-->
+            <!--<tr>-->
+                <!--<th>Nama</th>-->
+                <!--<th>Harga</th>-->
+                <!--<th>Deskripsi</th>-->
+                <!--<th>Durasi Penyajian</th>-->
+                <!--<th>Aksi</th>-->
+            <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+            <!--<tr>-->
+                <!--<td class="col-sm-3"><input type="text" name="nama" class="form-control" /></td>-->
+                <!--<td class="col-sm-3"><input type="number" name="harga"  class="form-control"/></td>-->
+                <!--<td class="col-sm-3"><input type="text" name="deskripsi"  class="form-control"/></td>-->
+                <!--<td class="col-sm-3"><input type="time" name="durasiMasak"  class="form-control"/></td>-->
+                <!--<td class="col-sm-2"><a class="deleteRow"></a>-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</tbody>-->
+        <!--<tfoot>-->
+            <!--<tr>-->
+                <!--<td colspan="5" style="text-align: left;">-->
+                    <!--<input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</tfoot>-->
+    <!--</table>-->
+    <!--<br>-->
+    <!--<button type="submit">Submit</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
 
-        $("#addrow").on("click", function () {
-            var newRow = $("<tr>");
-            var cols = "";
+<!--<script>-->
+    <!--$(document).ready(function () {-->
+        <!--var counter = 0;-->
 
-            cols += '<td><input type="text" class="form-control" name="nama' + counter + '"/></td>';
-            cols += '<td><input type="number" class="form-control" name="harga' + counter + '"/></td>';
-            cols += '<td><input type="text" class="form-control" name="deskripsi' + counter + '"/></td>';
-            cols += '<td><input type="time" class="form-control" name="durasiMasak' + counter + '"/></td>';
+        <!--$("#addrow").on("click", function () {-->
+            <!--var newRow = $("<tr>");-->
+            <!--var cols = "";-->
 
-
-            cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
-            newRow.append(cols);
-            $("table.order-list").append(newRow);
-            counter++;
-        });
+            <!--cols += '<td><input type="text" class="form-control" name="nama' + counter + '"/></td>';-->
+            <!--cols += '<td><input type="number" class="form-control" name="harga' + counter + '"/></td>';-->
+            <!--cols += '<td><input type="text" class="form-control" name="deskripsi' + counter + '"/></td>';-->
+            <!--cols += '<td><input type="time" class="form-control" name="durasiMasak' + counter + '"/></td>';-->
 
 
-
-        $("table.order-list").on("click", ".ibtnDel", function (event) {
-            $(this).closest("tr").remove();
-            counter -= 1
-        });
-
-
-    });
+            <!--cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';-->
+            <!--newRow.append(cols);-->
+            <!--$("table.order-list").append(newRow);-->
+            <!--counter++;-->
+        <!--});-->
 
 
 
-    function calculateRow(row) {
-        var price = +row.find('input[name^="price"]').val();
+        <!--$("table.order-list").on("click", ".ibtnDel", function (event) {-->
+            <!--$(this).closest("tr").remove();-->
+            <!--counter -= 1-->
+        <!--});-->
 
-    }
 
-    function calculateGrandTotal() {
-        var grandTotal = 0;
-        $("table.order-list").find('input[name^="price"]').each(function () {
-            grandTotal += +$(this).val();
-        });
-        $("#grandtotal").text(grandTotal.toFixed(2));
-    }
-</script>
+    <!--});-->
+<!--</script>-->
