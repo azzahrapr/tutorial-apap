@@ -1,12 +1,12 @@
 package apap.tutorial.gopud.service;
 
 import apap.tutorial.gopud.model.MenuModel;
+import apap.tutorial.gopud.model.RestoranModel;
 import apap.tutorial.gopud.repository.MenuDB;
-import jdk.dynalink.linker.LinkerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,5 +49,10 @@ public class MenuServiceImpl implements MenuService {
     @Override
     public void deleteMenu(MenuModel menuModel){
         menuDB.delete(menuModel);
+    }
+
+    @Override
+    public List<MenuModel> getListMenuOrderByHargaAsc(Long idRestoran){
+        return menuDB.findByRestoranIdRestoranOrderByHargaAsc(idRestoran);
     }
 }

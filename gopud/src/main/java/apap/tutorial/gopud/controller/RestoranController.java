@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 
 import apap.tutorial.gopud.model.RestoranModel;
 
+import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class RestoranController {
@@ -53,14 +55,17 @@ public class RestoranController {
         //mengambil objek RestoranModel yang dituju
         RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
 
+        List<MenuModel> menuList = menuService.getListMenuOrderByHargaAsc(restoran.getIdRestoran());
+        restoran.setListMenu(menuList);
+
         //add model restoran ke "resto" untuk dirender
         model.addAttribute("resto", restoran);
 
-        List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(restoran.getIdRestoran());
-        model.addAttribute("menuList", menuList);
-
         //return view template
         return "view-restoran";
+
+//        List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(restoran.getIdRestoran());
+//        model.addAttribute("menuList", menuList);
     }
 
     //API yang digunakan untuk menuju halaman form change restoran
@@ -110,4 +115,11 @@ public class RestoranController {
         }
         return "delete-error";
     }
+
+//    @RequestMapping("restoran/view/{nama}/{harga}")
+//    public String viewMenu(@PathVariable(value = "nama") String nama, @PathVariable(value = "harga") BigInteger harga, @ModelAttribute MenuModel menu, Model model){
+//        Optional<MenuModel> menuList = menuService.getMenuByNamaAndHarga(nama, harga);
+//        model.addAttribute("menuList", menuList);
+//        return "view-menu";
+//    }
 }
