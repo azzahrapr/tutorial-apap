@@ -5,20 +5,25 @@
 ---
 ## Tutorial 4
 ### What I have learned today
-1.
-Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 2.
+1. Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 2.
+
 Dari latihan nomor 2 saya jadi dapat menemukan cara yang lebih efektif dalam memodifikasi atau membuat dynamic navbar.
 Dalam menyelesaikan latihan nomor 2, pertama-tama saya mengubah fragment.html dengan menambahkan (title) setelah fragment navbar -> <nav th:fragment="navbar(title)"...> dan mendefine title pada link navbar title -> <nav th:text="${title}"...> Setelah itu, pada setiap page, saya mendefine title dari masing-masing page pada fragment navbar -> <nav th:replace="fragments/fragment :: navbar(title = 'Home')">
 
 2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 3.
+
 Saya belajar dari latihan nomor 3 bahwa kita dapat menggunakan method di controller pada html dengan memanfaatkan params.
 Dalam menyelesaikan nomor 3, saya membuat fields untuk input menu baru dengan atribut-atribut yang ditentukan. Lalu, saya membuat method addrow, removerow, addmenuformpage, dan addmenusubmit untuk melakukan operasi pada view. Setelah itu, saya menambahkan iterasi untuk dapat menambahkan banyak menu sekaligus (karena sebelumnya saya tidak dapat melakukan hal tersebut)
 
 
 3. Jelaskan perbedaan th:include dan th:replace.
- Thymeleaf dapat memasukkan bagian dari halaman lain sebagai fragment menggunakan th: include atau th: replace. th:include akan memasukkan konten fragmen ke dalam tag hostnya. Sedangkan th:replace akan menggantikan tag host dengan fragmen. Contohnya: Contohnya 
- <div th:include="..."> content </div> : fragmen diletakkan dalam div tag
- <div th:replace="..."> content </div> : div akan digantikan dengan fragmen. 
+
+Thymeleaf dapat memasukkan bagian dari halaman lain sebagai fragment menggunakan th: include atau th: replace. th:include akan memasukkan konten fragmen ke dalam tag hostnya. Sedangkan th:replace akan menggantikan tag host dengan fragmen. Contohnya: Contohnya
+
+ <div th:include="..."> content <//div> : fragmen diletakkan dalam div tag
+
+ <div th:replace="..."> content <//div> : div akan digantikan dengan fragmen. 
+
 
  4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
  th:object digunakan untuk menghandle input dari user. th: objek bermanfaat untuk menentukan objek yang terikat dengan data dari formulir (input) yang disubmit.
