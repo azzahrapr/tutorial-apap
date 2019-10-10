@@ -12,8 +12,10 @@
 ![image](https://user-images.githubusercontent.com/36152954/66541958-55782800-eb5b-11e9-95ff-94b11043a850.png)
 
 2. Before & after RestoranControllerTest
-![iamge]
-![image]
+![iamge](https://user-images.githubusercontent.com/36152954/66546528-69298b80-eb67-11e9-9c93-43256222d3f0.png)
+
+3. Before & after exclude main
+![image](https://user-images.githubusercontent.com/36152954/66546646-a4c45580-eb67-11e9-9a42-cc31cfe2b552.png)
  
 ###Pertanyaan
 1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah ​given, when, ​dan ​and then.
