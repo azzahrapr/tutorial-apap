@@ -34,16 +34,11 @@ public class RestoranServiceImpl implements RestoranService{
     public RestoranModel changeRestoran(RestoranModel restoranModel){
         // mengambil objek restoran yang ingin diubah
         RestoranModel targetRestoran = restoranDB.findById(restoranModel.getIdRestoran()).get();
-
-        try {
-            targetRestoran.setNama(restoranModel.getNama());
-            targetRestoran.setAlamat(restoranModel.getAlamat());
-            targetRestoran.setNomorTelepon(restoranModel.getNomorTelepon());
-            restoranDB.save(targetRestoran);
-            return targetRestoran;
-        } catch (NullPointerException nullException){
-            return null;
-        }
+        targetRestoran.setNama(restoranModel.getNama());
+        targetRestoran.setAlamat(restoranModel.getAlamat());
+        targetRestoran.setNomorTelepon(restoranModel.getNomorTelepon());
+        restoranDB.save(targetRestoran);
+        return targetRestoran;
     }
 
     @Override
