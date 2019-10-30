@@ -8,13 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+<<<<<<< HEAD
 import org.springframework.ui.ModelMap;
+=======
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
+=======
+
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
 import java.awt.*;
 import java.util.List;
 
@@ -26,6 +33,7 @@ public class MenuController {
     @Qualifier("restoranServiceImpl")
     @Autowired
     RestoranService restoranService;
+<<<<<<< HEAD
 //
 //    @RequestMapping(value = "menu/add/{idRestoran}", method = RequestMethod.GET)
 //    private String addProductFormPage(@PathVariable(value = "idRestoran") Long idRestoran, Model model){
@@ -45,6 +53,27 @@ public class MenuController {
 //
 //        return "add-menu";
 //    }
+=======
+
+    @RequestMapping(value = "menu/add/{idRestoran}", method = RequestMethod.GET)
+    private String addProductFormPage(@PathVariable(value = "idRestoran") Long idRestoran, Model model){
+        MenuModel menu = new MenuModel();
+        RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
+        menu.setRestoran(restoran);
+
+        model.addAttribute("menu", menu);
+        return "form-add-menu";
+    }
+
+    @RequestMapping(value = "menu/add", method = RequestMethod.POST)
+    private String addProductSubmit(@ModelAttribute MenuModel menu, Model model){
+        menuService.addMenu(menu);
+
+        model.addAttribute("nama", menu.getNama());
+
+        return "add-menu";
+    }
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
 
     //API yang digunakan untuk menuju halaman form change menu
     @RequestMapping(value = "menu/change/{id}", method = RequestMethod.GET)
@@ -63,6 +92,7 @@ public class MenuController {
         return "change-menu";
     }
 
+<<<<<<< HEAD
 
     @RequestMapping(value = "/menu/delete", method = RequestMethod.POST)
     public String delete(@ModelAttribute RestoranModel restoran, Model model){
@@ -72,12 +102,15 @@ public class MenuController {
         return "delete-menu";
     }
 
+=======
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
     @RequestMapping("/menu/delete/{id}")
     public String delete(@PathVariable(value = "id") Long id, @ModelAttribute MenuModel menu, Model model){
         MenuModel menuToDelete = menuService.getMenuById(id).get();
         menuService.deleteMenu(menuToDelete);
         return "delete-menu";
         }
+<<<<<<< HEAD
 
     @RequestMapping(value = "/menu/add/{idRestoran}")
     private String addMenuFormPage(@PathVariable(value = "idRestoran") Long idRestoran, Model model){
@@ -120,4 +153,6 @@ public class MenuController {
         model.clear();
         return "add-menu";
     }
+=======
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
 }

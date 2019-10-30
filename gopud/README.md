@@ -3,6 +3,7 @@
 * **Azzahra Putri Ramadhanty** - *1706025125* - *B*
 
 ---
+<<<<<<< HEAD
 ## Tutorial 4
 ### What I have learned today
 1. Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 2.
@@ -27,6 +28,24 @@ Thymeleaf dapat memasukkan bagian dari halaman lain sebagai fragment menggunakan
 
  4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
  th:object digunakan untuk menghandle input dari user. th: objek bermanfaat untuk menentukan objek yang terikat dengan data dari formulir (input) yang disubmit.
+=======
+## Tutorial 2
+### What I have learned today
+#### Github
+1. Cobalah untuk menambahkan sebuah restoran dengan mengakses ​link berikut: http://localhost:8080/restoran/add?idRestoran=1&nama=PanyuFC&alamat=Kantin%20Fasilkom&nomorTelepon=14022
+Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+Page yang dihasilkan akan menunjukan white label error karena controller belum me-return view template (HTML file) add-restoran
+
+2. Cobalah untuk menambahkan sebuah restoran dengan mengakses ​link berikut: http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin%20FIK
+Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+Akan terjadi error karena tidak ada parameter nomorTelepon pada URL yang dimasukan. Sedangkan, pada requestparam kita diwajibkan (required = true) untuk menyertakan nomorTelepon sebagai parameter pada URL.
+
+3. Jika Papa APAP ingin melihat restoran PanyuFC​, link ​apa yang harus diakses?
+http://localhost:8080/restoran/view?idRestoran=1
+
+4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses ​http://localhost:8080/restoran/viewall​, apa yang akan ditampilkan? Sertakan juga bukti ​screenshotmu.
+![image](https://user-images.githubusercontent.com/36152954/65163707-9d78c300-da65-11e9-8d49-55babfc6c206.png)
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
 
 ## Tutorial 3
 ### What I have learned today
@@ -53,6 +72,7 @@ FetchType.LAZY: memberi tahu Hibernate untuk mengambil suatu entity dari databas
 FetchType.EAGER: memberi tahu Hibernate untuk mengambil suatu entity diawal sehingga elemennya sudah siap saat kita membutuhkannya disuatu waktu.
 CascadeType.ALL: digunakan agar segala perubahan yang terjadi pada suatu entity (seperti DELETE, UPDATE, dsb) akan terjadi juga pada entity lain yang memiliki relasi dengannya. Contohnya ketika kita menghapus suatu restoran, maka menu yang dimiliki restoran tersebut juga akan ikut terhapus.
 
+<<<<<<< HEAD
 ## Tutorial 2
 ### What I have learned today
 #### Github
@@ -69,3 +89,5 @@ http://localhost:8080/restoran/view?idRestoran=1
 
 4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses ​http://localhost:8080/restoran/viewall​, apa yang akan ditampilkan? Sertakan juga bukti ​screenshotmu.
 ![image](https://user-images.githubusercontent.com/36152954/65163707-9d78c300-da65-11e9-8d49-55babfc6c206.png)
+=======
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
