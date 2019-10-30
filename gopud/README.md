@@ -3,6 +3,53 @@
 * **Azzahra Putri Ramadhanty** - *1706025125* - *B*
 
 ---
+## Tutorial 5
+### What I have learned today
+
+###Latihan
+1. Before & after MenuServiceImpl
+![image](https://user-images.githubusercontent.com/36152954/66542011-7c365e80-eb5b-11e9-833c-a71dd1181949.png)
+![image](https://user-images.githubusercontent.com/36152954/66541958-55782800-eb5b-11e9-95ff-94b11043a850.png)
+
+2. After RestoranControllerTest
+(lupa screenshot)
+![iamge](https://user-images.githubusercontent.com/36152954/66546528-69298b80-eb67-11e9-9c93-43256222d3f0.png)
+
+3. After exclude main
+(lupa screenshot)
+![image](https://user-images.githubusercontent.com/36152954/66546646-a4c45580-eb67-11e9-9a42-cc31cfe2b552.png)
+  
+###Pertanyaan
+1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah ​given, when, ​dan ​and then.
+given merupakan inisiasi dari dummy, mengatur attribut-attribut dari dummy tersebut, dan mengatur return dari database
+ketika menggunakan service. Bagian when berupa pemanggilan mockMvc.perform(get("/store/view?idStore=1")) yang akan 
+langsung berinteraksi dengan controller dan mengembalikan halaman berdasarkan controller. Bagian and then berupa 
+pemanggilan method .andExpect(...) yang berfungsi untuk melakukan pengecekan interaksi sesuai dengan yang diharapkan.
+
+2. Jelaskan perbedaan ​line coverage ​dan ​logic coverage.
+Line coverage mengukur berapa banyak statement yang ada. Statement adalah line of code, tidak termasuk comment, coditionals, etc.
+Logic coverage mengukur internal structure dari statement, meliputi decision yang ada dalam program, requirement, etc.
+
+3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, ​code ​atau ​unit test​? Mengapa
+seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin
+terjadi?
+Ketika membuat test terlebih dahulu, akan jauh lebih mudah dan cepat untuk membuat code. 
+Membuat unit test membantu untuk mempertimbangkan apa yang perlu dilakukan. 
+Requirement dibuat berdasarkan unit test sehingga tidak ada kesalahpahaman spesifikasi pada code yang akan dibuat.
+Error yang terjadi pada unit test mudah ditemukan dan relatif mudah diperbaiki.
+Jika urutan dibalik, yaitu membuat code terlebih dahulu lalu membuat unit test, akan muncul beberapa resiko diantaranya:
+    - Over-engineering : setelah menuliskan test, kita baru sadar kalau implementasi yang kita tulis lebih kompleks dari yang seharusnya.
+    - Kode yang kita tulis sulit untuk di tes, membuat kita harus menyesuaikan kode yang telah kita buat agar dapat di tes oleh automated test.
+    - No Test at All : Kita jadi malas untuk menulis automated test karena implementasi production code sudah selesai dan sudah berjalan dengan baik.
+
+4. [Bonus] ​Jelaskan mengapa pada latihan no 3, ​main class s​pring tidak diikutsertakan ke dalam
+perhitungan coverage? Apa saja yang dapat menyebabkan suatu ​class d​apat di-​exclude d​ari perhitungan ​code coverage.
+Karena class spring adalah main class method yang tidak dibutuhkan dalam penghitungan coverage.
+Hal-hal yang dapat menyebabkan di exclude antara lain file built-in, 
+file yang mempunyai code coverage rendah dan akan menimbukan kerusakan coverage secara keseluruhan serta 
+file configurasi yang tidak terdapat bisnis proses didalamnya.
+
+---
 ## Tutorial 4
 ### What I have learned today
 1. Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 2.
@@ -69,3 +116,29 @@ http://localhost:8080/restoran/view?idRestoran=1
 
 4. Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses ​http://localhost:8080/restoran/viewall​, apa yang akan ditampilkan? Sertakan juga bukti ​screenshotmu.
 ![image](https://user-images.githubusercontent.com/36152954/65163707-9d78c300-da65-11e9-8d49-55babfc6c206.png)
+
+---
+## Tutorial 1
+### What I have learned today
+#### Github
+1. Apa itu Issue Tracker? Masalah apa yang dapat diselesaikan dengan Issue Tracker?
+​Dengan Issue Tracker, kita dapat mengumpulkan feedback dari user, melaporkan ada atau tidaknya bug pada software, dan meng-organize tasks yang ingin diselesaikan menggunakan issue pada repository. Issue Tracker dapat membantu kita melakukan:
+- track dan prioritize tasks dengan project boards
+- menyelesaikan issue dengan pull request (merge), dll.
+2. Apa perbedaan dari git merge dan merge --squash?
+Merge adalah suatu command dalam git untuk membuat branch yang bercabang menjadi satu kembali atau dengan kata lain mengintegrasikan kembali branch tersebut menjadi satu.
+Bedanya, jika kita menggunakan merge --squash, riwayat atau history dari feature branch akan dihapus dan tidak ikut tertulis di master branch.
+
+#### Spring
+3. Apa itu library & dependency?
+Library adalah sekumpulan kelas dan fungsi yang dibuat untuk membantu pengembang aplikasi untuk dapat membangun aplikasi dengan lebih cepat dan lebih efisien. Pada umumnya saat kita membuat aplikasi web ada beberapa kelas yang hampir selalu digunakan, sehingga kelas-kelas tersebut dapat di atur supaya secara otomatis di-load oleh system dan dapat langsung digunakan.
+Spring menerapkan konsep Dependency Injection atau biasa dikenal dengan DI. DI dimaksudkan agar suatu kelas tidak terikat erat dengan kelas yang lain sehingga hubungan antar bagian kode menjadi longgar (loosely coupled). Diartikan simplenya bahwa DI berarti kita memberikan/menginjeksi suatu kelas ke kelas yang lain yang merupakan dependensinya (membutuhkannya).
+4. Apa itu Maven? Mengapa kita perlu menggunakan Maven? 
+Maven adalah Java Build Tools untuk membuat project di Java. Maven menggunakan konsep Project Object Model (POM). POM tersebut berisi informasi dan konfigurasi yang digunakan Maven untuk membuat project. Kita perlu menggunakan Maven untuk dapat menggabungkan project yang dikerjakan oleh banyak programmer yang menggunakan IDE berbeda-beda karena Maven mendefinisikan projectnya sendiri. Selain itu, Maven juga dapat memanage Dependency dengan mudah.
+5. Apa alternatif dari Maven?
+Salah satu alternatif dari Maven adalah Ant yang dikembangkan dengan developer yang sama yaitu Apache Software Foundation dan sama-sama menggunakan XML file format. Fitur-fitur Ant ada pada Maven bahkan Maven bisa diintegrasikan dengan Ant via Maven plugin. Perbedaannya yaitu Maven mempunyai tujuan yang lebih luas daripada Ant yang hanya fokus untuk build tool dan membuat task-task tertentu saja. 
+
+### What I did not understand
+(tuliskan apa saja yang kurang Anda mengerti, Anda dapat men-_check_ apabila Anda sudah mengerti dikemudian hari, dan tambahkan tulisan yang membuat Anda mengerti)
+- [ ] Kenapa saya harus belajar APAP? - [x] Kenapa?
+Karena ...

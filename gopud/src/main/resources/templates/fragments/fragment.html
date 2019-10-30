@@ -15,7 +15,8 @@
 
 <body>
 <nav th:fragment="navbar(title)" class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" th:text="${title}" href="#">Home</a>
+    <img th:src="@{img/Gopud_Logo.png}" width="50" height="50">
+    <a class="navbar-brand" th:text="${title}" href="#">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle Navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,5 +27,11 @@
         </div>
     </div>
 </nav>
+
+<!--<footer th:fragment="footer(title)">-->
+    <!--This is the footer of <a class="navbar-brand" th:text="${title}">Home</a> page <br>-->
+    <!--Made with love-->
+<!--</footer>-->
+
 </body>
 </html>
