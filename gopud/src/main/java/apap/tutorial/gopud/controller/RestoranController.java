@@ -11,8 +11,15 @@ import org.springframework.ui.Model;
 
 import apap.tutorial.gopud.model.RestoranModel;
 
+<<<<<<< HEAD
+import java.math.BigInteger;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+=======
+import java.util.Collections;
+import java.util.List;
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
 
 @Controller
 public class RestoranController {
@@ -53,6 +60,19 @@ public class RestoranController {
         //mengambil objek RestoranModel yang dituju
         RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
 
+<<<<<<< HEAD
+        List<MenuModel> menuList = menuService.getListMenuOrderByHargaAsc(restoran.getIdRestoran());
+        restoran.setListMenu(menuList);
+
+        //add model restoran ke "resto" untuk dirender
+        model.addAttribute("resto", restoran);
+
+        //return view template
+        return "view-restoran";
+
+//        List<MenuModel> menuList = menuService.findAllMenuByIdRestoran(restoran.getIdRestoran());
+//        model.addAttribute("menuList", menuList);
+=======
         //add model restoran ke "resto" untuk dirender
         model.addAttribute("resto", restoran);
 
@@ -61,6 +81,7 @@ public class RestoranController {
 
         //return view template
         return "view-restoran";
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
     }
 
     //API yang digunakan untuk menuju halaman form change restoran
@@ -110,4 +131,14 @@ public class RestoranController {
         }
         return "delete-error";
     }
+<<<<<<< HEAD
+
+//    @RequestMapping("restoran/view/{nama}/{harga}")
+//    public String viewMenu(@PathVariable(value = "nama") String nama, @PathVariable(value = "harga") BigInteger harga, @ModelAttribute MenuModel menu, Model model){
+//        Optional<MenuModel> menuList = menuService.getMenuByNamaAndHarga(nama, harga);
+//        model.addAttribute("menuList", menuList);
+//        return "view-menu";
+//    }
+=======
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
 }

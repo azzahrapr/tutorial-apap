@@ -3,6 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>View Restoran</title>
+<<<<<<< HEAD
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <nav th:replace="fragments/fragment :: navbar(title = 'View Restoran')"></nav>
+    <div class="container-fluid">
+        <h2>Informasi Restoran</h2>
+        <h3 th:text="'ID Restoran: ' + ${resto.idRestoran}"></h3>
+        <h3 th:text="'Nama Restoran: ' + ${resto.nama}"></h3>
+        <h3 th:text="'Alamat Restoran: ' + ${resto.alamat}"></h3>
+        <h3 th:text="'Nomor Telp. Restoran: ' + ${resto.nomorTelepon}" ></h3>
+
+        <form th:action="@{/restoran/change/}+${resto.idRestoran}">
+            <button class="btn btn-sm btn-primary">
+                Change Data Restoran
+            </button>
+        </form>
+        <br>
+
+        <h2>Daftar Menu: </h2>
+        <form th:action="@{/menu/delete}" th:object="${resto}" method="POST">
+            <table id="menu" class="table order-list">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Deskripsi</th>
+                    <th>Durasi Penyajian</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="menu, iterationStatus : *{listMenu}"
+                    th:style="${iterationStatus.even} ? 'color: blue' ">
+                    <td th:text="${iterationStatus.count}"></td>
+                    <td th:text="${menu.nama}"></td>
+                    <td th:text="${menu.harga} >= 10000 ? 'diatas 10k' : 'dibawah 10k' "></td>
+                    <td th:text="${menu.deskripsi}"></td>
+                    <td th:text="${menu.durasiMasak}"></td>
+                    <td>
+                        <input type="checkbox" th:field="*{listMenu}" th:value="${menu.id}"/>
+                        <label th:for="${#ids.prev('listMenu')}">Hapus</label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        <button type="submit" class="btn btn-sm btn-danger">Hapus yang dipilih</button>
+        </form>
+        <br>
+        <form th:action="@{/menu/add/}+${resto.idRestoran}">
+            <button class="btn btn-sm btn-primary">
+                Add Menu
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+=======
 </head>
 <body>
     <h2>Informasi Restoran</h2>
@@ -30,3 +95,4 @@
 
 </body>
 </html>
+>>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
