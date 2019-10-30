@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html xmlns:th="http://www.thymelaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
@@ -135,32 +134,3 @@
 
     <!--});-->
 <!--</script>-->
-=======
-<html xmlns:th="http://www.thymelaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Menu</title>
-</head>
-<body>
-<h3>Tambah Produk</h3>
-<form th:action="@{/menu/add}" th:object="${menu}" method="POST">
-    <input type="hidden" th:field="*{restoran}"/>
-    Nama: <br>
-    <input type="text" name="nama"/>
-    <br>
-    Deskripsi: <br>
-    <input type="text" name="deskripsi"/>
-    <br>
-    Harga: <br>
-    <input type="number" name="harga"/>
-    <br>
-    durasiMasak (menit): <br>
-    <input type="number" name="durasiMasak"/>
-    <br>
-    <button type="submit">Submit</button>
-</form>
-<br>
-<td><a th:href="@{/}">Home</a></td>
-</body>
-</html>
->>>>>>> 2dc6ba4e86071f3a821272fd97c500b57bb99f1c
