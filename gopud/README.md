@@ -3,9 +3,26 @@
 * **Azzahra Putri Ramadhanty** - *1706025125* - *B*
 
 ---
+## Tutorial 6
+### What I have learned today
+###Latihan
+1. Apa itu postman? Apa kegunaan dari postman?
+
+- POSTMAN adalah sebuah aplikasi (berupa plugin) untuk browser chrome, fungsinya adalah sebagai REST Client atau istilahnya adalah aplikasi yang digunakan untuk melakukan uji coba REST API yang telah kita buat.
+
+
+2. Apa kegunaan dari annotation @JsonIgnoreProperties?
+
+- Anotasi yang dapat digunakan untuk menekan serialisasi properti (selama serialisasi), atau mengabaikan pemrosesan properti JSON yang dibaca (saat deserialisasi).
+
+3. Apa itu ResponseEntity dan apa kegunaannya?
+
+- ResponseEntity dimaksudkan untuk mewakili seluruh respons HTTP. ResponseEntity dapat mengontrol apa pun yang masuk ke dalamnya: kode status, header, dan tubuh. 
+
+
+
 ## Tutorial 5
 ### What I have learned today
-
 ###Latihan
 1. Before & after MenuServiceImpl
 ![image](https://user-images.githubusercontent.com/36152954/66542011-7c365e80-eb5b-11e9-833c-a71dd1181949.png)
