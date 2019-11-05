@@ -88,5 +88,9 @@ public class RestoranRestServiceImpl implements RestoranRestService{
 
     }
 
+    @Override
+    public Mono<String> getChefName(String nama){
+        return this.webClient.get().uri("https://1b9f0f25-7f24-4c84-bc83-3ded0830c3f8.mock.pstmn.io/api/v1/restoran/chef?nama="+nama).retrieve().bodyToMono(String.class);
+    }
 
 }
