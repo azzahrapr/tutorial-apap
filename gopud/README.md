@@ -3,6 +3,37 @@
 * **Azzahra Putri Ramadhanty** - *1706025125* - *B*
 
 ---
+## Tutorial 7
+### What I have learned today
+###Latihan
+
+
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode
+yang telah anda buat) konsep tersebut diimplementasi?
+
+- Perbedaan utama antara otentikasi dan otorisasi adalah bahwa otentikasi adalah proses memeriksa detail pengguna untuk mengidentifikasinya dan memberikan akses ke sistem sementara otorisasi adalah proses memeriksa hak atau izin pengguna yang diotentikasi untuk mengakses sumber daya sistem.
+
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerjanya!
+
+- BCryptPasswordEncoder adalah fungsi pada spring untuk melakukan hashing password. BCryptPasswordEncoder secara otomatis menghitung dan menghasilkan hash secara acak dan setiap kali di call, kita akan mendapat hasil hash yang berbeda-beda.
+
+
+3. Jelaskan secara singkat apa itu UUID dan mengapa kita memakai UUID di UserModel.java?
+
+- UUID (Universally Unique Identifier) adalah kumpulan 36 karakter (string) yang dibuat secara acak (random) dan unik dengan teknik khusus. UUID terdiri dari 32 karakter alphanumerik dan 4 karakter tanda hubung (strip). 
+Dikarenakan karakter UUID yang unik, sangat kecil kemungkinan sebuah karakter UUID akan sama bahkan jika di-generate dalam tempo 1 detik sekalipun. UUID umumnya digunakan sebagai Primary Key, termasuk pada UserModel. UUID digunakan
+untuk menghindari konflik primary key dan juga untuk mengamankan data.
+
+  
+4. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut
+padahal kita sudah memiliki class UserRoleServiceImpl.java?
+
+- UserServiceImpl ada pada package service, sementara UserDetailServiceImpl pada package security.
+Service ini melakuakn import dari org.springframework.security.core.userdetails.UserDetailsService yang berisi antarmuka inti yang memuat data khusus
+pengguna
+
+
 ## Tutorial 6
 ### What I have learned today
 ###Latihan
