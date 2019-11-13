@@ -1,68 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tutorial 8
+### What I have learned today
+### Latihan
+1. Saya membuat variable checkbox untuk setiap item pada item.js. Lalu dilakukan pengecekan pada setiap item apakah checkbox terisi (checked) atau tidak. Jika terisi, maka checkbox akan ditampilkan yaitu pada My Favorite dimana checkbox bernilai true. Sedangkan checkbox bernilai false di Our Menu sehingga tidak ditampilkan.
 
-## Available Scripts
+![img](https://user-images.githubusercontent.com/36152954/68775129-9edafc00-0660-11ea-9f89-7e815bd55ed0.png)
 
-In the project directory, you can run:
+screenshot diatas juga termasuk untuk latihan nomor 2 yaitu implementasi function handleItemClick
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Saya membuat dua function untuk handleItemClick yaitu handleItemClick1 yang hanya dapat melakukan add serta diimplementasikan pada Our Menu dan handleItemClick2 yang dapat diadd dan remove untuk diimplementasikan pada My Favorite. handleItemClick1 memiliki function .splice yang mereturn array yang sudah di remove sedangkan handleItemClick2 tidak memiliki function .splice sehingga Our Menu hanya dapat melakukan add.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![img](https://user-images.githubusercontent.com/36152954/68775071-8a96ff00-0660-11ea-98f0-a57c2ce59e93.png)
 
-### `npm test`
+3. Dalam membuat toggle untuk menampilkan My Favorite, saya membuat state yaitu newState di App.js yang memiliki default false. State ini akan berubah setiap kali toggle diklik yang ditrigger melalui function showFavorit. Apabila state bernilai true maka My Favorite akan ditampilkan, begitu pula sebaliknya. Untuk menampilkan dan menghilangkan My Favorite, cek newState dilakukan pada div class My Favorite (lihat screenshot latihan nomor 1)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![img](https://user-images.githubusercontent.com/36152954/68776278-69371280-0662-11ea-9e37-33152fcfdafd.png)
+![img](https://user-images.githubusercontent.com/36152954/68776305-73f1a780-0662-11ea-9164-63f493a0db27.png)
 
-### `npm run build`
+4. Saya membuat EmptyState pada components untuk menampilkan statement bahwa My Favorite belum diisi. EmptyState ini diakses/diimport oleh List.js yang melakukan pengecekan apabila list items tidak ada, maka akan ditampilkan EmptyState tersebut. Sedangkan jika list items ada maka akan ditampilkan favorite items.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![img](https://user-images.githubusercontent.com/36152954/68776929-6f79be80-0663-11ea-8ff9-56abce52ad07.png)

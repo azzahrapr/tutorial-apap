@@ -10,13 +10,13 @@ export default class App extends React.Component {
     newState: false
   };
 
-  // handleChange = () => this.setState({ checked: !this.state.checked});
-
   showFavorit = () =>{
     this.setState(prevState => ({
       newState : !prevState.newState
     }))
   };
+
+  // handleChange = () => this.setState({ checked: !this.state.checked});
 
   handleItemClick1 = item =>{
     const newItems = [...this.state.favItems];
@@ -51,17 +51,6 @@ export default class App extends React.Component {
         </h1>
 
         <p className="text-center"><input type = "checkbox" onClick={this.showFavorit}/>Show Favorite</p>
-
-      {/* <div>
-        <div>
-          <label>Check</label>
-          <input 
-            type="checkbox" 
-            checked={ this.state.checked } 
-            onChange={ this.handleChange } />
-        </div>
-        { content }
-    </div>; */}
 
         <div className="container pt-3">
           <div className="row">
