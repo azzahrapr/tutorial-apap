@@ -9,7 +9,7 @@ class Restorans extends Component{
         super(props);
         this.state = {
             restorans: [],
-            isLoading: true
+            isLoading: false
         }
     }
 
