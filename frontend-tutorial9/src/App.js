@@ -8,11 +8,10 @@ class App extends Component{
     return(
     <React.Fragment>
       <Layout>
-        <Restorans/>
+        <Restorans />
         </Layout>
       </React.Fragment>
       );
     }
 }
-
 export default App;
