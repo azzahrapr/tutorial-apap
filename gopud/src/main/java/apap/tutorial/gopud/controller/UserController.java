@@ -14,9 +14,33 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    private String addUserSubmit(@ModelAttribute UserModel user){
-        userService.addUser(user);
-        return "home";
+    private String addUserSubmit(@ModelAttribute UserModel user, String password, String confirmedpass, Model model){
+        if (userService.getUser(user.getUsername()) == null) {
+            if (password.matches(".*[a-zA-Z].*") && password.matches(".*[0-9].*") && password.length() >= 10) {
+                if (password.equals(confirmedpass) == false) {
+                    model.addAttribute("pesan", "Konfirmasi password tidak sama!");
+                    return "home";
+                }
+                else {
+                    boolean valid = userService.validatePassword(password, confirmedpass);
+                    if (valid == true) {
+                        userService.addUser(user);
+                        model.addAttribute("pesan", "User berhasil ditambahkan!");
+                        return "home";
+                    } else {
+                        model.addAttribute("pesan", "Password kurang sesuai!");
+                        return "home";
+                    }
+                }
+            } else {
+                model.addAttribute("pesan", "Password tidak boleh kurang dari 10 karakter dan harus mengandung huruf dan angka!");
+                return "home";
+            }
+        }
+        else {
+            model.addAttribute("pesan", "Username sudah ada!");
+            return "home";
+        }
     }
 
     @RequestMapping(value = "/update-password/{username}", method = RequestMethod.GET)
@@ -54,7 +78,6 @@ public class UserController {
             model.addAttribute("pesan", "Password tidak boleh kurang dari 8 karakter dan harus mengandung huruf dan angka!");
             return "form-update-password";
         }
-
     }
 }
 

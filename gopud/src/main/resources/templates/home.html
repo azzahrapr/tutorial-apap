@@ -21,6 +21,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">Tambah User Baru</div>
+                <span style="color: red" th:text="${pesan}">Error Message</span>
                 <div class="card-body">
                     <form th:action="@{/user/addUser}" method="POST">
                         <label>User Name</label>
@@ -28,6 +29,9 @@
 
                         <label>Password</label>
                         <input type="password" name="password" class="form-control">
+
+                        <label>Konfirmasi Password</label>
+                        <input type="password" name="confirmedpass" class="form-control">
 
                         <label>Role</label>
                         <select name="role" class="form-control">
