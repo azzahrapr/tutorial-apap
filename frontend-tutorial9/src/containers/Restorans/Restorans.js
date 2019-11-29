@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import classes from './Restorans.module.css';
 import Restoran from '../../components/Restoran/Restoran';
-import axios from '../../axios-restorans';
+import axios from '../../axios-restoran';
 import Modal from '../../components/UI/Modal/Modal';
 import Button from "../../components/UI/Button/Button";
 
 
 class Restorans extends Component{
+
     constructor(props){
         super(props);
         this.state = {
@@ -30,7 +31,7 @@ class Restorans extends Component{
 
         this.setState(prevState  => {
             const filteredRestorans = prevState.restorans.filter(element => {
-                return element.nama.toLowerCase().includes(query.toLowerCase());
+                return element.nama.toLowerCase().startsWith(query.toLowerCase());
             });
             return{
                 query,
@@ -38,6 +39,8 @@ class Restorans extends Component{
             };
         });
     };
+
+  
 
     componentDidMount() {
         this.loadRestorans();
@@ -119,6 +122,7 @@ class Restorans extends Component{
             nomorTelepon: this.state.nomorTelepon,
             rating: this.state.rating
         };
+
         await axios.put("/restoran/" + this.state.idRestoran, restoranToEdit);
         await this.loadRestorans();
         this.canceledHandler();
@@ -128,6 +132,7 @@ class Restorans extends Component{
         await axios.delete(`/restoran/${restoranId}`);
         await this.loadRestorans();
     }
+
 
     render() {
         const render =  this.state.isUpdate?
