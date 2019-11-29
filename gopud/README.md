@@ -2,6 +2,32 @@
 ## Authors
 * **Azzahra Putri Ramadhanty** - *1706025125* - *B*
 
+## Tutorial 9
+### What I have learned today
+### Latihan
+
+1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?  
+Dalam mengerjakan soal LATIHAN 1, saya menambahkan this.setSate ({nama: "", alamat:"", nomorTelepon:"", rating:""});  pada bagian akhir addRestoran. Tujuannya adalah agar saat form selesai disubmit/dipost, value pada form akan diganti menjadi string kosong jadi form tidak akan terisi oleh informasi restoran yang disubmit sebelumnya.
+
+2. Jelaskan fungsi dari async dan await! 
+
+- Async digunakan untuk mengatasi asynchronous pada javascript.  
+- Await digunakan untuk menunggu eksekusi sampai proses asynchronous selesai kemudian baru melanjutkan ke baris selanjutnya.
+ Async digunakan sebelum fungsi dan tidak harus ada wait sedangkan await harus menggunakan async.
+
+3.  Masukkan jawaban dari TODO (Screenshot) pada Component Lifecycle pada pertanyaan ini
+        ![1](https://user-images.githubusercontent.com/36152954/69876417-1ad87380-12f2-11ea-92c4-26c26f2d8160.png)
+        ![2](https://user-images.githubusercontent.com/36152954/69876440-32176100-12f2-11ea-9b08-dcdedbdb3086.png)
+        ![3](https://user-images.githubusercontent.com/36152954/69876479-46f3f480-12f2-11ea-8138-a88a85e88e3f.png)
+        ![4](https://user-images.githubusercontent.com/36152954/69876507-5a06c480-12f2-11ea-8a91-a7e953aa3e02.png)
+
+4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”. 
+- componentDidMount() : tahap setelah component di render. pada tahap ini proses pemanggilan ajax dan perubahan isi state setelah proses ajax di panggil.
+ - shouldComponentUpdate : tugasnya adalah untuk menentukan apakah sebuah component akan di render ulang atau tidak. Method ini akan mengembalikan nilai boolean true & false, jika true maka component akan di render ulang atau sebaliknya. 
+- componentDidUpdate : fungsinya sama dengan componentDidMount yaitu untuk manipulasi DOM dan request data.
+ - componentWillReceiveProps : fungsi ini akan di eksekusi bila state yang ada di component akan di update atau di ubah dengan nilai props yang baru. 
+- componentWillUnmount: fungsi ini dipanggil ketika komponen sudah dibuang dari DOM. Fungsi ini digunakan ketika aksi-aksi yang berhubungan dengan pembersihan diperlukan. Use case  nya adalah ketika membuang timer yang sebelumnya didefinisikan di componentDidMount. 
+
 
 ## Tutorial 8
 ### What I have learned today

@@ -8,7 +8,6 @@ import Button from "../../components/UI/Button/Button";
 
 
 class Restorans extends Component{
-
     constructor(props){
         super(props);
         this.state = {
@@ -161,15 +160,15 @@ class Restorans extends Component{
       </div>
         return(
             <React.Fragment>
-                
                 <Modal show={this.state.isCreate || this.state.isEdit}
                     modalClosed={this.canceledHandler}>
                     {this.renderForm()}
                 </Modal>
                 <div className={classes.Title}>All Restorans</div>
-                <div className="searchForm">
+                <div className={classes.wrap}>
                     <form>
                     <input
+                        className={classes.searchTerm}
                         placeholder="Search for..."
                         value={this.state.query}
                         onChange={this.handleInputChange}
@@ -196,7 +195,6 @@ class Restorans extends Component{
         const{ isEdit } = this.state;
         return(
             <form>
-
                 <input
                 className={classes.Input}
                 name="nama"
@@ -205,7 +203,6 @@ class Restorans extends Component{
                 value={this.state.nama}
                 onChange={this.changeHandler}
                 />
-
                 <input
                 className={classes.Input}
                 name="nomorTelepon"
@@ -214,7 +211,6 @@ class Restorans extends Component{
                 value={this.state.nomorTelepon}
                 onChange={this.changeHandler}
                 />
-
                 <textarea
                 className={classes.TextArea}
                 name="alamat"
@@ -223,7 +219,6 @@ class Restorans extends Component{
                 value={this.state.alamat}
                 onChange={this.changeHandler}
                 />
-
                 <input
                 className={classes.Input}
                 name="rating"
@@ -232,7 +227,6 @@ class Restorans extends Component{
                 value={this.state.rating}
                 onChange={this.changeHandler}
                 />
-
                 <Button btnType="Danger" onClick={this.canceledHandler}>
                     CANCEL
                 </Button>
